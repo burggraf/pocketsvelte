@@ -18,7 +18,7 @@
 		)
 			.then((authData) => {
 				console.log('authData', authData)
-				window.location.href = '/'
+				window.location.href = '/login'
 			})
 			.catch((err) => {
 				console.error('error', err)
