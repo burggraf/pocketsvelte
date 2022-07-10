@@ -69,25 +69,20 @@
 
 <div class="content">
 
-	<h1>Login</h1>
+	<h1>{logged_in ? "Logout" : "Login"}</h1>
     {#if !logged_in}
         Email:<input bind:value={email} type="text" name="email" placeholder="email" />
         <br />
         Password: <input bind:value={password} type="password" name="password" placeholder="password" />
         <br />
-    {/if}
-    {#if logged_in}
-        Logged in as: {user.email}<br/>
-        {user.profile?.name}<br/>
-    {/if}
-	{#if !logged_in}
 		<button
 			on:click={() => {
 				login(email, password)
 			}}>Login</button
 		>
-	{/if}
-	{#if logged_in}
+    {:else}
+        Logged in as: {user.email}<br/>
+        {user.profile?.name}<br/>
 		<button
 			on:click={() => {
 				logout()
